@@ -1,0 +1,72 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+  <div class="row mt-3">
+    <div class="col-8 offset-2">
+      <h3>Listing Details</h3>
+
+      <div class="card col-6 offset-2 mb-3 shadow-sm rounded-lg">
+        <img src="<%= listing.image || '/path/to/default-image.jpg' %>" class="card-img-top show-img" alt="listing_image">
+        <div class="card-body">
+          <h5 class="card-title"><%= listing.title %></h5>
+          <p class="card-text"><strong>Description:</strong> <%= listing.description %></p>
+          <p class="card-text"><strong>Price:</strong> &#2547; <%= listing.price.toLocaleString("bn-BD") %></p>
+          <p class="card-text"><strong>Location:</strong> <%= listing.location %></p>
+          <p class="card-text"><strong>Country:</strong> <%= listing.country %></p>
+          
+          <a href="/listings/<%= listing._id %>/edit" class="btn btn-edit mt-3 me-2">Edit this Listing</a>
+          <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE" style="display: inline;">
+            <button class="btn btn-delete mt-3">Delete this listing</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Review Section -->
+      <div class="col-8 offset-2 mt-4">
+        <h4>Reviews</h4>
+        <% listing.reviews.forEach(review => { %>
+          <div class="card mt-3 shadow-sm rounded-lg border-0">
+            <div class="card-header bg-primary text-white rounded-top">
+              <strong>Rating:</strong> <%= review.rating %> ★
+            </div>
+            <div class="card-body bg-light">
+              <p class="card-text"><strong>Comment:</strong> <%= review.comment %></p>
+              <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button class="btn btn-danger btn-sm">Delete</button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+      <!-- Leave a Review Section -->
+      <div class="col-8 offset-2 mt-4">
+        <h4>Leave a Review</h4>
+
+        <!-- 5-Star Rating System with "Rating" Label -->
+        <form action="/listings/<%= listing._id %>/reviews" method="POST" id="reviewForm" class="needs-validation" novalidate>
+          <label for="rating" class="form-label">Rating</label>
+          <div class="rating mb-3">
+            <input type="radio" name="review[rating]" value="5" id="5" required>
+            <label for="5">★</label>
+            <input type="radio" name="review[rating]" value="4" id="4" required>
+            <label for="4">★</label>
+            <input type="radio" name="review[rating]" value="3" id="3" required>
+            <label for="3">★</label>
+            <input type="radio" name="review[rating]" value="2" id="2" required>
+            <label for="2">★</label>
+            <input type="radio" name="review[rating]" value="1" id="1" required>
+            <label for="1">★</label>
+          </div>
+
+          <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <textarea class="form-control" id="comment" name="review[comment]" rows="3" required minlength="10"></textarea>
+            <div class="invalid-feedback">Please enter a comment (at least 10 characters).</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer class="mt-5"></footer>
+</body>

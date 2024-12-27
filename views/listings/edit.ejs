@@ -1,0 +1,52 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+  <div class="col-8 offset-2">
+    <div class="form-container">
+      <br/><br/>
+      <h3>Edit Your Listing</h3>
+      <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation">
+        <div class="form-group">
+          <label for="title" class="form-label">Title</label>
+          <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required />
+          <div class="valid-feedback">Perfect! This title is catchy!</div>
+          <div class="invalid-feedback">Please enter a title!</div>
+        </div>
+        <div class="form-group">
+          <label for="description" class="form-label">Description</label>
+          <textarea name="listing[description]" placeholder="Enter description" class="form-control" required><%= listing.description %></textarea>
+          <div class="valid-feedback">Great! The description is spot on!</div>
+          <div class="invalid-feedback">Please enter a description!</div>
+        </div>
+        <div class="form-group">
+          <label for="image" class="form-label">Image</label>
+          <input name="listing[image]" value="<%= listing.image %>" type="text" class="form-control" />
+          <div class="valid-feedback">Nice! The image URL looks good!</div>
+          <div class="invalid-feedback">Please enter a valid image URL!</div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required />
+            <div class="valid-feedback">Awesome! The price is set!</div>
+            <div class="invalid-feedback">Please enter a valid Price!</div>
+          </div>
+          <div class="form-group col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required />
+            <div class="valid-feedback">Great! The country is noted!</div>
+            <div class="invalid-feedback">Please enter a country!</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="location" class="form-label">Location</label>
+          <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required />
+          <div class="valid-feedback">Excellent! The location is added!</div>
+          <div class="invalid-feedback">Please enter a location!</div>
+        </div>
+        <br/>
+        <button class="btn">Edit</button>
+        <br/><br/>
+      </form>
+    </div>
+  </div>
+</div>
