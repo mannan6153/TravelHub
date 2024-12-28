@@ -1,6 +1,30 @@
-<<<<<<< HEAD
-# TravelHub
-TravelHub is a travel management platform for planning and booking trips, creating custom itineraries, and getting real-time updates.
-=======
-# TravelHub
->>>>>>> c1a6fa615c27a3ed23e45915f93c5b740a49fd56
+# 🌍 TravelHub
+
+Welcome to **TravelHub** – your ultimate travel companion. This project is designed to revolutionize the way you plan and experience your travel adventures.
+
+## ✈️ Project Overview
+
+**TravelHub** is a comprehensive platform that allows users to explore travel destinations, plan their trips, and share their experiences with others. With an intuitive and user-friendly interface, TravelHub ensures a seamless travel planning experience.
+
+## 🚀 Features
+
+- **Explore Destinations**: Discover new places with detailed information and beautiful images.
+- **Trip Planner**: Create and customize your travel itinerary.
+- **User Reviews**: Read and share reviews and experiences from fellow 
+          travelers.
+- **Cookie Handling**: Track user visits and customize their experience.
+
+## 🛠️ Technologies Used
+
+- **Frontend**: HTML, CSS, JavaScript, React.js, Bootstrap
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Version Control**: Git & GitHub
+- **Templating Engine**: EJS
+- **Middleware**: Method-Override, Cookie-Parser
+
+## 💡 How to Use
+
+1. **Clone the Repository**:
+   ```sh
+   git clone https://github.com/mannan6153/TravelHub.git
