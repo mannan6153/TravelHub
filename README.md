@@ -39,4 +39,8 @@ Welcome to **TravelHub** – your ultimate travel companion. This project is des
 1. **Install Dependencies**:
    ```sh
    npm install
+2. **Run the Server with nodemon **:
+   ```sh
+   nodemon app.js
+   
 >>>>>>> aa5d9495ebe58eca225d425bee17b60495a5d565
